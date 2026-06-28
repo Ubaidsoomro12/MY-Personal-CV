@@ -9,7 +9,25 @@ interface CVPreviewProps {
   activeTheme: ThemeStyle;
 }
 
-export default function CVPreview({ cvData, activeTheme }: CVPreviewProps) {
+export default function CVPreview({ cvData: rawCvData, activeTheme }: CVPreviewProps) {
+  const cvData = {
+    ...rawCvData,
+    languages: rawCvData.languages ? rawCvData.languages.filter(l => {
+      const lang = l.language.toLowerCase().trim();
+      return lang !== "hi" && lang !== "sapne" && lang !== "hindi" && lang !== "spanish" && lang !== "es";
+    }) : [],
+    experience: rawCvData.experience ? rawCvData.experience.filter(e => {
+      const role = e.role.toLowerCase().trim();
+      const company = e.company.toLowerCase().trim();
+      return role !== "hi" && role !== "sapne" && company !== "hi" && company !== "sapne";
+    }) : [],
+    honors: rawCvData.honors ? rawCvData.honors.filter(h => {
+      const title = h.title.toLowerCase().trim();
+      const desc = h.description.toLowerCase().trim();
+      return title !== "hi" && title !== "sapne" && desc !== "hi" && desc !== "sapne";
+    }) : []
+  };
+
   const [copied, setCopied] = React.useState(false);
   const [showPrintGuide, setShowPrintGuide] = React.useState(false);
   const [isExporting, setIsExporting] = React.useState(false);
@@ -309,9 +327,8 @@ export default function CVPreview({ cvData, activeTheme }: CVPreviewProps) {
 
   const theme = colors[activeTheme] || colors.charcoal;
 
-  // Split experiences into founder vs developer roles so that they sit precisely on Page 2 vs Page 3
-  const founderExp = cvData.experience.filter(e => e.role.toLowerCase().includes("founder") || e.role.toLowerCase().includes("architect"));
-  const devExps = cvData.experience.filter(e => !e.role.toLowerCase().includes("founder") && !e.role.toLowerCase().includes("architect"));
+  // Keep all experiences together in the main timeline on Page 3
+  const devExps = cvData.experience;
 
   return (
     <div className="flex flex-col h-full bg-[#0a0f1d] border border-slate-800 rounded-2xl overflow-hidden shadow-2xl relative">
@@ -583,49 +600,6 @@ export default function CVPreview({ cvData, activeTheme }: CVPreviewProps) {
                 </div>
               </div>
 
-              {/* Section 04: Experience (Founder & Lead Full-Stack Architect role) */}
-              <div className="mt-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <h2 className="font-display font-extrabold text-[13.5px] tracking-wider text-slate-900 uppercase">
-                    04 / PROFESSIONAL EXPERIENCE &amp; EXECUTIVE LEADERSHIP
-                  </h2>
-                  <div className="flex-1 h-[1px] bg-slate-200"></div>
-                </div>
-
-                {founderExp.map((exp) => (
-                  <div key={exp.id} className="group">
-                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-2 mb-2">
-                      <div className="flex flex-wrap items-baseline gap-y-1">
-                        <span className="font-display font-black text-[13.5px] text-slate-900 uppercase tracking-wide">
-                          {exp.role.toUpperCase()}
-                        </span>
-                        <span className="hidden sm:inline mx-2 text-slate-300 font-light">|</span>
-                        <span className={`font-sans text-[11.5px] ${theme.accentText} font-extrabold uppercase tracking-wide block sm:inline`}>
-                          {exp.company}
-                        </span>
-                      </div>
-                      <span className={`text-[10.5px] font-mono text-slate-500 font-semibold uppercase tracking-wider ${theme.highlight} border ${theme.border} rounded px-2 py-0.5 self-start sm:self-auto shrink-0`}>
-                        {exp.dates}
-                      </span>
-                    </div>
-
-                    <ul className="space-y-2.5 mt-3">
-                      {exp.bullets.map((b, idx) => (
-                        <li key={idx} className="text-[11.5px] leading-relaxed text-slate-700 text-justify flex items-start font-sans">
-                          <span className={`${theme.accentLightText} text-xs mr-2.5 select-none font-bold`}>•</span>
-                          <span>{b}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-
-            </div>
-
-            {/* Print Friendly Page 2 Indicators */}
-            <div className="absolute bottom-2 left-0 right-0 text-center no-print border-t border-dashed border-slate-200 pt-1 select-none">
-              <span className="text-[10px] font-mono text-slate-400 tracking-widest font-bold">A4 PAGE 2 END</span>
             </div>
 
             {/* Page 2 footer */}
@@ -657,7 +631,7 @@ export default function CVPreview({ cvData, activeTheme }: CVPreviewProps) {
               <div>
                 <div className="flex items-center gap-3 mb-5">
                   <h2 className="font-display font-extrabold text-[13.5px] tracking-wider text-slate-900 uppercase">
-                    04 / PROFESSIONAL EXPERIENCE (CONTINUED)
+                    04 / PROFESSIONAL EXPERIENCE &amp; ENGINEERING TIMELINES
                   </h2>
                   <div className="flex-1 h-[1px] bg-slate-200"></div>
                 </div>

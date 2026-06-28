@@ -14,33 +14,33 @@ export const initialCVData: CVData = {
   
   honors: [
     {
-      title: "Backend Developer – DigiTech Software Company (Jan 2026 – Present)",
-      description: "Developing scalable backend systems and dynamic web applications using PHP, Laravel, MERN (MongoDB, Express.js, React.js, Node.js), and MySQL, building RESTful APIs, optimizing database performance, and implementing secure and efficient application functionality."
+      title: "Global Web Application Recognition (Techwiz 4 & Techwiz 5)",
+      description: "Represented team Code Sorcerers (Aptech Defence Hyderabad Center) across Aptech consecutive global web application development tracks, earning an international Certificate of Participation at Techwiz 4 (2023) and escalating to an international Certificate of Recognition for outstanding performance at Techwiz 5 (2024)."
     },
     {
-      title: "Onboarding Project Lead – Meta Wave Innovations (Jan 2026 – Present)",
-      description: "Designated as the critical onboarding leadership point for incoming engineering and development personnel, establishing workspace standardizations since January 2026."
+      title: "Professional Microsoft Office Certification – Government College for Information Technology (2023)",
+      description: "Successfully completed a 3-month comprehensive certification in Microsoft Office applications (from February 1, 2023 to May 18, 2023) held at the Government College for Information Technology, Qasimabad, Hyderabad, earning Certificate No. 209."
+    },
+    {
+      title: "Software Engineering Showcase Distinction (Aptech Vision)",
+      description: "Credentialed and consistently recognized for technical excellence and innovative software showcase contributions across consecutive Aptech Vision exhibitions from 2024 , spanning major technical showcases in Hyderabad and Karachi."
+    },
+    {
+      title: "1st Runner-Up of Contest-Azm in Web Application Development – Aptech Learning Defence Center Hyd (2024)",
+      description: "Awarded a Certificate of Appreciation for achieving 1st Runner-Up of Contest-Azm in Web Application Development at Aptech Learning Defence Center, Hyderabad, on November 23, 2024 (Sr No. 027122)."
+    },
+    {
+      title: "Aptech Vision Software Exhibition Participation – Aptech Learning Hyderabad (2024)",
+      description: "Awarded a Certificate of Participation in recognition of showcasing software talents at Aptech Vision 2024, held in Hyderabad on Thursday, November 21, 2024 (Sr No. 116426)."
     },
 
     {
-      title: "IT Intern – DigiTech Software Company (May 2025 – Sep 2025)",
+      title: "As A Backend Developer – DigiTech Software Company (May 2025 – Till Now)",
       description: "Supported the development team in building and maintaining web applications using PHP, Laravel, and MySQL, performed bug fixing and testing, and assisted in creating responsive and user-friendly interfaces."
-    },
-    {
-      title: "Academic Distinction in Computer Science (BSCS) (2022 – 2025)",
-      description: "Advanced academic standing at the University of Sindh, specializing in data structures, database administration, and software engineering."
     },
     {
       title: "Enterprise Software Engineering Mastery (Aptech Pakistan) (2022 – 2025)",
       description: "Completed rigorous multi-year professional tracks including CPISM (Certificate Proficiency in Information System Management), DISM (Diploma in Information System Management), and HDSE (Higher Diploma in Software Engineering), demonstrating full-cycle architectural proficiency."
-    },
-    {
-      title: "Teaching Experience – Computer Programming & Web Development (Jan 2022 – Dec 2023)",
-      description: "Trained and mentored students in PHP, Laravel, HTML, CSS, JavaScript, and coding best practices for modern web development."
-    },
-    {
-      title: "Most Innovative Intern of the Year (2022)",
-      description: "Awarded for outstanding development contributions, technical agility, and engineering initiative during early career full-stack projects."
     }
   ],
 
@@ -120,13 +120,13 @@ export const initialCVData: CVData = {
     },
     {
       id: "exp3",
-      role: "IT Intern",
+      role: "Full Stack Developer Intern",
       company: "DigiTech Software Company",
-      dates: "May 2025 – Sep 2025",
+      dates: "Jun 2025 – Aug 2025",
       bullets: [
-        "Supported the development team in building and maintaining web applications using PHP, Laravel, and MySQL.",
-        "Performed rigorous testing, structural bug fixing, and tracing client-side rendering bottlenecks using browser diagnostics.",
-        "Assisted in creating highly responsive and user-friendly web interfaces using HTML, CSS, Tailwind CSS, and Bootstrap."
+        "Completed a 3-month intensive Full-Stack Development Internship, actively contributing to both front-end and back-end web solutions.",
+        "Collaborated with senior engineers to build and maintain robust web applications using React, Node.js, and modern databases.",
+        "Optimized existing codebases, performed testing, resolved rendering bottlenecks, and developed mobile-responsive user interfaces using Tailwind CSS."
       ]
     },
     {
@@ -183,6 +183,12 @@ export const initialCVData: CVData = {
   ],
 
   education: [
+    {
+      institution: "BISE Hyderabad",
+      degree: "Higher Secondary Certificate (HSC Part-II) in Pre-Engineering",
+      dates: "2021",
+      details: "Successfully passed the Higher Secondary Certificate Part-II Annual Examination in the Pre-Engineering group with an exceptional A1 Grade, held under the Board of Intermediate & Secondary Education, Hyderabad, Sindh in July 2021 (Seat No. 84065, Certificate S.No. 108048)."
+    },
     {
       institution: "University of Sindh, Jamshoro",
       degree: "Bachelor of Science in Computer Science (BSCS)",
