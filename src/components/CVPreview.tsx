@@ -938,7 +938,18 @@ export default function CVPreview({ cvData, activeTheme }: CVPreviewProps) {
               
               <div className="flex items-center justify-between text-[8px] font-mono text-slate-400 pt-2 mt-2 border-t border-slate-100 select-none">
                 <span>Verification ID: {cvData.name.split(" ").map(n => n?.[0] || "").join("")}-ELITE-5P-CV2026</span>
-                <span>5 / 5</span>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={handleDownloadPDF}
+                    disabled={isExporting}
+                    className="no-print flex items-center gap-1 px-2.5 py-1 rounded-md border text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border-emerald-200 transition-all font-display font-black uppercase tracking-wider text-[8px] cursor-pointer shadow-xs active:scale-95 disabled:opacity-50 disabled:pointer-events-none"
+                    title="Download entire CV as high-res PDF"
+                  >
+                    <FileDown size={10} className="text-emerald-600 animate-bounce" />
+                    <span>{isExporting ? "Exporting..." : "Download PDF"}</span>
+                  </button>
+                  <span className="font-bold text-slate-500">5 / 5</span>
+                </div>
               </div>
             </div>
           </div>
