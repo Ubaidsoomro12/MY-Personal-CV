@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Ali Hassan Chand Resume \u0026 ATS Optimizer",
+  "description": "An elite, interactive CV viewer, real-time customizer, and AI-powered ATS optimization suite for Ali Hassan Chand, Technical Founder \u0026 Full-Stack Architect.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
