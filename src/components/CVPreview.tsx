@@ -319,7 +319,7 @@ export default function CVPreview({ cvData, activeTheme }: CVPreviewProps) {
 
 
       {/* Workspace Wrapper (Handles scrolling, 5 A4 pages display) */}
-      <div className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8 bg-[#090d16]/50 scroll-smooth">
+      <div className="flex-1 overflow-y-auto p-3 sm:p-4 md:p-6 lg:p-8 bg-[#090d16]/50 scroll-smooth">
         <div id="cv-pages-container" className="mx-auto w-full max-w-[800px] flex flex-col gap-8 print:gap-0">
           
           {/* ========================================================= */}
@@ -327,11 +327,11 @@ export default function CVPreview({ cvData, activeTheme }: CVPreviewProps) {
           {/* ========================================================= */}
           <div 
             id="cv-page-1"
-            className="print-area relative w-full aspect-[1/1.4142] min-h-[1110px] bg-white text-slate-900 shadow-2xl p-10 print:p-10 border border-slate-100 flex flex-col justify-between overflow-hidden print:shadow-none print:border-none print:m-0 print:rounded-none select-text"
+            className="print-area relative w-full md:aspect-[1/1.4142] md:min-h-[1110px] h-auto bg-white text-slate-900 shadow-2xl p-5 sm:p-8 md:p-10 print:p-10 border border-slate-100 flex flex-col justify-between md:overflow-hidden overflow-visible print:shadow-none print:border-none print:m-0 print:rounded-none select-text"
           >
             <div>
-              {/* Header block (Exact height 140px constraint) */}
-              <div className="h-[140px] flex items-center justify-between border-b border-slate-200 pb-3">
+              {/* Header block (Exact height 140px constraint on desktop, flexible on mobile) */}
+              <div className="md:h-[140px] h-auto flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-3 gap-4">
                 <div className="flex flex-col justify-center h-full">
                   <h1 className="font-display font-extrabold text-[36px] tracking-tight leading-none text-slate-950">
                     {cvData.name.toUpperCase()}
@@ -393,7 +393,7 @@ export default function CVPreview({ cvData, activeTheme }: CVPreviewProps) {
                 </div>
 
                 {/* Right shape: Precision geometric wireframe accent */}
-                <div className="h-full flex items-center justify-end select-none">
+                <div className="h-full hidden xs:flex items-center justify-end select-none shrink-0">
                   <div className={`relative w-24 h-24 border ${theme.accentBorder} flex items-center justify-center p-2 rounded-lg ${theme.highlight}/50`}>
                     <div className={`absolute inset-0 border border-dashed ${theme.accentBorder}/50 rounded-lg m-1`}></div>
                     <svg width="40" height="40" viewBox="0 0 40 40" className={theme.accentText}>
@@ -468,11 +468,11 @@ export default function CVPreview({ cvData, activeTheme }: CVPreviewProps) {
           {/* ========================================================= */}
           <div 
             id="cv-page-2"
-            className="print-area relative w-full aspect-[1/1.4142] min-h-[1110px] bg-white text-slate-900 shadow-2xl p-10 print:p-10 border border-slate-100 flex flex-col justify-between overflow-hidden print:shadow-none print:border-none print:m-0 print:rounded-none select-text"
+            className="print-area relative w-full md:aspect-[1/1.4142] md:min-h-[1110px] h-auto bg-white text-slate-900 shadow-2xl p-5 sm:p-8 md:p-10 print:p-10 border border-slate-100 flex flex-col justify-between md:overflow-hidden overflow-visible print:shadow-none print:border-none print:m-0 print:rounded-none select-text"
           >
             <div>
               {/* Top metadata ribbon */}
-              <div className="h-[40px] flex items-center justify-between border-b border-slate-200 pb-2 mb-4">
+              <div className="md:h-[40px] h-auto flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-2 mb-4 gap-2">
                 <span className="font-display font-black text-xs text-slate-950 uppercase tracking-wider">
                   {cvData.name.toUpperCase()}
                 </span>
@@ -594,17 +594,17 @@ export default function CVPreview({ cvData, activeTheme }: CVPreviewProps) {
 
                 {founderExp.map((exp) => (
                   <div key={exp.id} className="group">
-                    <div className="flex justify-between items-baseline mb-2">
-                      <div>
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-2 mb-2">
+                      <div className="flex flex-wrap items-baseline gap-y-1">
                         <span className="font-display font-black text-[13.5px] text-slate-900 uppercase tracking-wide">
                           {exp.role.toUpperCase()}
                         </span>
-                        <span className="mx-2 text-slate-300 font-light">|</span>
-                        <span className={`font-sans text-[11.5px] ${theme.accentText} font-extrabold uppercase tracking-wide`}>
+                        <span className="hidden sm:inline mx-2 text-slate-300 font-light">|</span>
+                        <span className={`font-sans text-[11.5px] ${theme.accentText} font-extrabold uppercase tracking-wide block sm:inline`}>
                           {exp.company}
                         </span>
                       </div>
-                      <span className={`text-[10.5px] font-mono text-slate-500 font-semibold uppercase tracking-wider ${theme.highlight} border ${theme.border} rounded px-2 py-0.5`}>
+                      <span className={`text-[10.5px] font-mono text-slate-500 font-semibold uppercase tracking-wider ${theme.highlight} border ${theme.border} rounded px-2 py-0.5 self-start sm:self-auto shrink-0`}>
                         {exp.dates}
                       </span>
                     </div>
@@ -640,11 +640,11 @@ export default function CVPreview({ cvData, activeTheme }: CVPreviewProps) {
           {/* ========================================================= */}
           <div 
             id="cv-page-3"
-            className="print-area relative w-full aspect-[1/1.4142] min-h-[1110px] bg-white text-slate-900 shadow-2xl p-10 print:p-10 border border-slate-100 flex flex-col justify-between overflow-hidden print:shadow-none print:border-none print:m-0 print:rounded-none select-text"
+            className="print-area relative w-full md:aspect-[1/1.4142] md:min-h-[1110px] h-auto bg-white text-slate-900 shadow-2xl p-5 sm:p-8 md:p-10 print:p-10 border border-slate-100 flex flex-col justify-between md:overflow-hidden overflow-visible print:shadow-none print:border-none print:m-0 print:rounded-none select-text"
           >
             <div>
               {/* Top metadata ribbon */}
-              <div className="h-[40px] flex items-center justify-between border-b border-slate-200 pb-2 mb-4">
+              <div className="md:h-[40px] h-auto flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-2 mb-4 gap-2">
                 <span className="font-display font-black text-xs text-slate-950 uppercase tracking-wider">
                   {cvData.name.toUpperCase()}
                 </span>
@@ -665,17 +665,17 @@ export default function CVPreview({ cvData, activeTheme }: CVPreviewProps) {
                 <div className="space-y-6">
                   {devExps.map((exp) => (
                     <div key={exp.id} className={`border-b ${theme.border} pb-5 last:border-0 last:pb-0`}>
-                      <div className="flex justify-between items-baseline mb-2">
-                        <div>
+                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-2 mb-2">
+                        <div className="flex flex-wrap items-baseline gap-y-1">
                           <span className="font-display font-black text-[13.5px] text-slate-900 uppercase tracking-wide">
                             {exp.role.toUpperCase()}
                           </span>
-                          <span className="mx-2 text-slate-300 font-light">|</span>
-                          <span className={`font-sans text-[11.5px] ${theme.accentText} font-extrabold uppercase tracking-wide`}>
+                          <span className="hidden sm:inline mx-2 text-slate-300 font-light">|</span>
+                          <span className={`font-sans text-[11.5px] ${theme.accentText} font-extrabold uppercase tracking-wide block sm:inline`}>
                             {exp.company}
                           </span>
                         </div>
-                        <span className={`text-[10.5px] font-mono text-slate-500 font-semibold uppercase tracking-wider ${theme.highlight} border ${theme.border} rounded px-2 py-0.5`}>
+                        <span className={`text-[10.5px] font-mono text-slate-500 font-semibold uppercase tracking-wider ${theme.highlight} border ${theme.border} rounded px-2 py-0.5 self-start sm:self-auto shrink-0`}>
                           {exp.dates}
                         </span>
                       </div>
@@ -712,11 +712,11 @@ export default function CVPreview({ cvData, activeTheme }: CVPreviewProps) {
           {/* ========================================================= */}
           <div 
             id="cv-page-4"
-            className="print-area relative w-full aspect-[1/1.4142] min-h-[1110px] bg-white text-slate-900 shadow-2xl p-10 print:p-10 border border-slate-100 flex flex-col justify-between overflow-hidden print:shadow-none print:border-none print:m-0 print:rounded-none select-text"
+            className="print-area relative w-full md:aspect-[1/1.4142] md:min-h-[1110px] h-auto bg-white text-slate-900 shadow-2xl p-5 sm:p-8 md:p-10 print:p-10 border border-slate-100 flex flex-col justify-between md:overflow-hidden overflow-visible print:shadow-none print:border-none print:m-0 print:rounded-none select-text"
           >
             <div>
               {/* Top metadata ribbon */}
-              <div className="h-[40px] flex items-center justify-between border-b border-slate-200 pb-2 mb-4">
+              <div className="md:h-[40px] h-auto flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-2 mb-4 gap-2">
                 <span className="font-display font-black text-xs text-slate-950 uppercase tracking-wider">
                   {cvData.name.toUpperCase()}
                 </span>
@@ -736,13 +736,14 @@ export default function CVPreview({ cvData, activeTheme }: CVPreviewProps) {
 
                 {cvData.projects.map((proj) => (
                   <div key={proj.id} className={`border ${theme.border} rounded-xl p-4 ${theme.accentHoverBorder} transition-colors relative shadow-sm ${theme.cardBg}`}>
-                    <div className={`absolute top-4 right-4 text-[10px] font-mono font-bold ${theme.tagClass} px-2.5 py-0.5 rounded`}>
-                      {proj.technologies}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                      <h3 className="font-display font-extrabold text-[13.5px] text-slate-950 uppercase tracking-wide">
+                        {proj.title}
+                      </h3>
+                      <div className={`text-[10px] font-mono font-bold ${theme.tagClass} px-2.5 py-0.5 rounded self-start sm:self-auto shrink-0`}>
+                        {proj.technologies}
+                      </div>
                     </div>
-                    
-                    <h3 className="font-display font-extrabold text-[13.5px] text-slate-950 uppercase tracking-wide">
-                      {proj.title}
-                    </h3>
                     
                     <p className="mt-2 text-[11.5px] text-slate-650 leading-relaxed text-justify font-sans">
                       <strong>Description: </strong>{proj.description}
@@ -826,11 +827,11 @@ export default function CVPreview({ cvData, activeTheme }: CVPreviewProps) {
           {/* ========================================================= */}
           <div 
             id="cv-page-5"
-            className="print-area relative w-full aspect-[1/1.4142] min-h-[1110px] bg-white text-slate-900 shadow-2xl p-10 print:p-10 border border-slate-100 flex flex-col justify-between overflow-hidden print:shadow-none print:border-none print:m-0 print:rounded-none select-text"
+            className="print-area relative w-full md:aspect-[1/1.4142] md:min-h-[1110px] h-auto bg-white text-slate-900 shadow-2xl p-5 sm:p-8 md:p-10 print:p-10 border border-slate-100 flex flex-col justify-between md:overflow-hidden overflow-visible print:shadow-none print:border-none print:m-0 print:rounded-none select-text"
           >
             <div>
               {/* Top metadata ribbon */}
-              <div className="h-[40px] flex items-center justify-between border-b border-slate-200 pb-2 mb-4">
+              <div className="md:h-[40px] h-auto flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-2 mb-4 gap-2">
                 <span className="font-display font-black text-xs text-slate-950 uppercase tracking-wider">
                   {cvData.name.toUpperCase()}
                 </span>
@@ -919,7 +920,7 @@ export default function CVPreview({ cvData, activeTheme }: CVPreviewProps) {
 
             {/* Elite Footer Block */}
             <div className="mt-auto pt-6 border-t border-slate-200">
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4 text-center sm:text-left">
                 <div>
                   <span className="text-[10px] font-sans font-extrabold text-slate-950 uppercase tracking-widest block">
                     Built with precision.
@@ -928,7 +929,7 @@ export default function CVPreview({ cvData, activeTheme }: CVPreviewProps) {
                     Verified via official corporate, regional, and institutional documentation.
                   </p>
                 </div>
-                <div className="flex items-center gap-4 text-[9px] font-mono text-slate-500 font-bold select-none">
+                <div className="flex flex-wrap justify-center sm:justify-end items-center gap-x-4 gap-y-1 text-[9px] font-mono text-slate-500 font-bold select-none">
                   <span>{cvData.email}</span>
                   <span>•</span>
                   <span>{cvData.portfolio}</span>
