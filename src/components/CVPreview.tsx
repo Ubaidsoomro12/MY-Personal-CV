@@ -331,12 +331,12 @@ export default function CVPreview({ cvData: rawCvData, activeTheme }: CVPreviewP
   const devExps = cvData.experience;
 
   return (
-    <div className="flex flex-col h-auto md:h-full bg-[#0a0f1d] border border-slate-800 rounded-2xl overflow-hidden shadow-2xl relative">
+    <div className="flex flex-col h-full bg-[#0a0f1d] border border-slate-800 rounded-2xl overflow-hidden shadow-2xl relative">
       
 
 
       {/* Workspace Wrapper (Handles scrolling, 5 A4 pages display) */}
-      <div className="flex-1 overflow-y-visible md:overflow-y-auto p-3 sm:p-4 md:p-6 lg:p-8 bg-[#090d16]/50 scroll-smooth">
+      <div className="flex-1 overflow-y-auto p-3 sm:p-4 md:p-6 lg:p-8 bg-[#090d16]/50 scroll-smooth">
         <div id="cv-pages-container" className="mx-auto w-full max-w-[800px] flex flex-col gap-8 print:gap-0">
           
           {/* ========================================================= */}
@@ -350,7 +350,7 @@ export default function CVPreview({ cvData: rawCvData, activeTheme }: CVPreviewP
               {/* Header block (Exact height 140px constraint on desktop, flexible on mobile) */}
               <div className="md:h-[140px] h-auto flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-3 gap-4">
                 <div className="flex flex-col justify-center h-full">
-                  <h1 className="font-display font-extrabold text-[24px] sm:text-[30px] md:text-[36px] tracking-tight leading-none text-slate-950">
+                  <h1 className="font-display font-extrabold text-[36px] tracking-tight leading-none text-slate-950">
                     {cvData.name.toUpperCase()}
                   </h1>
                   
@@ -410,7 +410,7 @@ export default function CVPreview({ cvData: rawCvData, activeTheme }: CVPreviewP
                 </div>
 
                 {/* Right shape: Precision geometric wireframe accent */}
-                <div className="h-full hidden sm:flex items-center justify-end select-none shrink-0">
+                <div className="h-full hidden xs:flex items-center justify-end select-none shrink-0">
                   <div className={`relative w-24 h-24 border ${theme.accentBorder} flex items-center justify-center p-2 rounded-lg ${theme.highlight}/50`}>
                     <div className={`absolute inset-0 border border-dashed ${theme.accentBorder}/50 rounded-lg m-1`}></div>
                     <svg width="40" height="40" viewBox="0 0 40 40" className={theme.accentText}>
