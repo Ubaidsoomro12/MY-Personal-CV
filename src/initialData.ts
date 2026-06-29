@@ -79,6 +79,7 @@ export const initialCVData: CVData = {
       id: "p1",
       title: "HRMS SYSTEM",
       technologies: "Laravel, MySQL, Tailwind CSS",
+      link: "https://hr.digitechinfra.com/admin/",
       description: "Developed a comprehensive HRMS (Human Resource Management System) designed to automate corporate workflows, employee profiles, and payroll.",
       contribution: "Engineered system components for employee management, attendance tracking, secure payroll processing, and structured leave management subsystems.",
       result: "Slashed administrative processing overhead and replaced legacy manual tracking systems with fully secure, live software dashboards."
@@ -87,6 +88,7 @@ export const initialCVData: CVData = {
       id: "p2",
       title: "JOB PORTAL SYSTEM",
       technologies: "Laravel, MySQL, Bootstrap, Tailwind CSS",
+      link: "https://www.kaasib.pk/",
       description: "Developed a modern job portal platform featuring dynamic candidate application channels, resume submissions, and robust employer management dashboards.",
       contribution: "Designed candidate filtering query structures, responsive dashboard displays, and optimized database storage pipelines.",
       result: "Delivered clean system performance with minimal backend server load, enabling smooth candidate application flows."
@@ -178,6 +180,17 @@ export const initialCVData: CVData = {
       role: "Full-Stack Developer",
       bullets: [
         "Developed an online clothing store with product management, order processing, and responsive design using Laravel, MySQL, and Tailwind CSS."
+      ]
+    },
+    {
+      id: "dep4",
+      client: "Online Shopping Mart",
+      link: "https://www.bachatmart.pk/",
+      role: "Full-Stack Developer",
+      bullets: [
+        "Developed Bachat Mart, a complete e-commerce online shopping mart featuring detailed product categories, dynamic search functionality, and seamless cart operations.",
+        "Engineered home-delivery routing pipelines and intuitive checkout experiences, enabling customers to easily order and track favorite products directly to their home address.",
+        "Built the robust architecture using PHP/Laravel for back-end APIs, MySQL for database optimization, and designed responsive user interfaces using Tailwind CSS and JavaScript."
       ]
     }
   ],

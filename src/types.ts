@@ -5,6 +5,7 @@ export interface SectionProject {
   description: string;
   contribution: string;
   result: string;
+  link?: string;
 }
 
 export interface SectionExperience {

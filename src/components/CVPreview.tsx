@@ -708,33 +708,53 @@ export default function CVPreview({ cvData: rawCvData, activeTheme }: CVPreviewP
                   <div className="flex-1 h-[1px] bg-slate-200"></div>
                 </div>
 
-                {cvData.projects.map((proj) => (
-                  <div key={proj.id} className={`border ${theme.border} rounded-xl p-4 ${theme.accentHoverBorder} transition-colors relative shadow-sm ${theme.cardBg}`}>
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                      <h3 className="font-display font-extrabold text-[13.5px] text-slate-950 uppercase tracking-wide">
-                        {proj.title}
-                      </h3>
-                      <div className={`text-[10px] font-mono font-bold ${theme.tagClass} px-2.5 py-0.5 rounded self-start sm:self-auto shrink-0`}>
-                        {proj.technologies}
+                <div className="flex flex-col gap-4">
+                  {cvData.projects.map((proj) => (
+                    <div key={proj.id} className={`border ${theme.border} rounded-xl p-4 ${theme.accentHoverBorder} transition-colors relative shadow-sm ${theme.cardBg}`}>
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                        <div className="flex flex-wrap items-center gap-2.5">
+                          <h3 className="font-display font-extrabold text-[13.5px] text-slate-950 uppercase tracking-wide">
+                            {proj.title}
+                          </h3>
+                          {proj.link && (
+                            <>
+                              <a
+                                href={proj.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`text-[11px] font-mono font-bold ${theme.accentText} hover:underline inline-flex items-center gap-1 shrink-0 no-print`}
+                              >
+                                <Globe className="w-3 h-3" />
+                                <span>{proj.link}</span>
+                              </a>
+                              <span className="hidden print:inline text-[9px] font-mono text-slate-500">
+                                ({proj.link})
+                              </span>
+                            </>
+                          )}
+                        </div>
+                        <div className={`text-[10px] font-mono font-bold ${theme.tagClass} px-2.5 py-0.5 rounded self-start sm:self-auto shrink-0`}>
+                          {proj.technologies}
+                        </div>
                       </div>
+                      
+                      <p className="mt-2 text-[11.5px] text-slate-650 leading-relaxed text-justify font-sans">
+                        <strong>Description: </strong>{proj.description}
+                      </p>
+                      
+                      <ul className="mt-3 space-y-1.5 pl-0.5">
+                        <li className="text-[11.5px] leading-relaxed text-slate-700 text-justify flex items-start font-sans">
+                          <span className={`${theme.accentLightText} mr-2 select-none font-bold`}>✓</span>
+                          <span><strong>Contribution:</strong> {proj.contribution}</span>
+                        </li>
+                        <li className="text-[11.5px] leading-relaxed text-slate-700 text-justify flex items-start font-sans">
+                          <span className={`${theme.accentLightText} mr-2 select-none font-bold`}>✓</span>
+                          <span><strong>Business Impact:</strong> {proj.result}</span>
+                        </li>
+                      </ul>
                     </div>
-                    
-                    <p className="mt-2 text-[11.5px] text-slate-650 leading-relaxed text-justify font-sans">
-                      <strong>Description: </strong>{proj.description}
-                    </p>
-                    
-                    <ul className="mt-3 space-y-1.5 pl-0.5">
-                      <li className="text-[11.5px] leading-relaxed text-slate-700 text-justify flex items-start font-sans">
-                        <span className={`${theme.accentLightText} mr-2 select-none font-bold`}>✓</span>
-                        <span><strong>Contribution:</strong> {proj.contribution}</span>
-                      </li>
-                      <li className="text-[11.5px] leading-relaxed text-slate-700 text-justify flex items-start font-sans">
-                        <span className={`${theme.accentLightText} mr-2 select-none font-bold`}>✓</span>
-                        <span><strong>Business Impact:</strong> {proj.result}</span>
-                      </li>
-                    </ul>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
 
               {/* Section 06: Commercial Deployments */}
@@ -746,15 +766,25 @@ export default function CVPreview({ cvData: rawCvData, activeTheme }: CVPreviewP
                   <div className="flex-1 h-[1px] bg-slate-200"></div>
                 </div>
 
-                <div className="grid grid-cols-1 gap-2.5">
+                <div className="grid grid-cols-1 gap-2">
                   {cvData.deployments.map((dep) => (
-                    <div key={dep.id} className={`${theme.highlight}/50 border ${theme.border} rounded-lg p-3 flex flex-col justify-between ${theme.accentHoverBorder} transition-colors`}>
+                    <div key={dep.id} className={`${theme.highlight}/50 border ${theme.border} rounded-lg py-2 px-3 flex flex-col justify-between ${theme.accentHoverBorder} transition-colors`}>
                       <div className="flex justify-between items-start">
                         <div>
                           <h4 className="font-display font-black text-[12px] text-slate-950 flex flex-wrap items-center gap-1.5">
                             <span>{dep.client}</span>
                             {dep.link && (
-                              <span className={`text-[10px] font-mono ${theme.accentText} font-medium lowercase`}>
+                              <a
+                                href={dep.link.startsWith('http') ? dep.link : `https://${dep.link}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`text-[10px] font-mono ${theme.accentText} font-semibold lowercase hover:underline no-print`}
+                              >
+                                ({dep.link})
+                              </a>
+                            )}
+                            {dep.link && (
+                              <span className="hidden print:inline text-[9px] font-mono text-slate-500 lowercase">
                                 ({dep.link})
                               </span>
                             )}
@@ -770,9 +800,9 @@ export default function CVPreview({ cvData: rawCvData, activeTheme }: CVPreviewP
                         </div>
                       </div>
 
-                      <ul className="mt-1.5 space-y-1">
+                      <ul className="mt-1 space-y-0.5">
                         {dep.bullets.map((b, idx) => (
-                          <li key={idx} className="text-[11px] leading-relaxed text-slate-655 text-justify flex items-start font-sans">
+                          <li key={idx} className="text-[11px] leading-snug text-slate-655 text-justify flex items-start font-sans">
                             <span className={`${theme.accentLightText} text-xs mr-2 select-none font-bold`}>•</span>
                             <span>{b}</span>
                           </li>
